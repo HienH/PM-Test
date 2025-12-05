@@ -1,6 +1,6 @@
 # 📄 PM Test – Fintech Web App Prototype
 
-Take home test forObermind
+Take home test for Obermind
 
 ## 🛠 Tech Stack
 
@@ -38,6 +38,10 @@ npm run dev
 - Country/region is not encoded into the URL (kept internal).
 
 - Architecture supports future TMS integration for translation management.
+
+### Country Management
+
+- The country code is set via cookie by the backend and cannot be changed by users on the frontend
 
 ### 4. Testing
 

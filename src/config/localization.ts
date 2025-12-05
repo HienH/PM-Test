@@ -16,5 +16,5 @@ export function isValidLocale(locale: string): locale is Locale {
 }
 
 export const LOCALE_LABELS: Record<Locale, string> = {
-  en: "English",
+  en: "ENG",
 };

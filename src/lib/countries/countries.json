@@ -1,0 +1,10 @@
+{
+  "GB": {
+    "label": "United Kingdom",
+    "currency": "GBP"
+  },
+  "AE": {
+    "label": "United Arab Emirates",
+    "currency": "AED"
+  }
+}
