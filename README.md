@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 PM Test – Fintech Web App Prototype
 
-## Getting Started
+Take home test forObermind
 
-First, run the development server:
+## 🛠 Tech Stack
+
+- **Next.js 16**
+- **TypeScript**
+- **App Router**
+- **next-intl** (i18n & locale routing)
+- **TailwindCSS**
+
+---
+
+## 🚀 Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Assumptions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Project Flow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- "Personal" is the primary user entry point.
+- Users landing on `/` are redirected to `/[locale]/personal`.
+- "Personal" and "Institutional" have independent pages at:
+  - `/[locale]/personal`
+  - `/[locale]/institutional`
 
-## Learn More
+### 2. Internationalization
 
-To learn more about Next.js, take a look at the following resources:
+- Locales assumed to be predefined in env
+- URL-based locale routing: `/{locale}/...`
+- Implemented using `next-intl` with App Router.
+- Language switching updates only the locale segment in the URL.
+- Country/region is not encoded into the URL (kept internal).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Architecture supports future TMS integration for translation management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Testing
 
-## Deploy on Vercel
+- Going to assume no testing as it wasnt instructed but im aware and able to add testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
