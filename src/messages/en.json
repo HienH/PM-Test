@@ -18,5 +18,16 @@
     "partnerWithUs": "Partner with us",
     "register": "Register",
     "account": "Account"
+  },
+  "personalHome": {
+    "hero": {
+      "title": "Trade Forex\nwith Premier\nMarkets",
+      "description": "Access global markets with advanced trading tools, competitive spreads, and institutional grade execution.",
+      "buttons": {
+        "startTrading": "Start Trading",
+        "tryDemo": "Try Demo Account"
+      },
+      "imageAlt": "Trading app interface"
+    }
   }
 }

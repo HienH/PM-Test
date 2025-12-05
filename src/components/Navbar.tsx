@@ -79,7 +79,7 @@ export default function Navbar() {
       className="border-b border-slate-200 bg-white/80 backdrop-blur"
       ref={navRef}
     >
-      <nav className="mx-auto flex max-w-screen-2xl items-center px-4 py-3 md:py-4">
+      <nav className="max-w-[1440px] mx-auto flex items-center md:px-16 py-3 px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image src="/Logo.svg" alt="Company logo" width={160} height={45} />

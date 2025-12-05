@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { Inter, Urbanist } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const gilroyBold = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Gilroy-Bold.ttf",
+      weight: "400",
+      style: "bold",
+    },
+  ],
+  variable: "--font-gilroy",
+  display: "swap",
+});
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -29,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`min-h-screen bg-white text-slate-900 ${urbanist.variable} ${inter.variable} font-sans antialiased`}
+        className={`min-h-screen max-w-[1440px] mx-auto bg-white text-slate-900 ${urbanist.variable} ${inter.variable} ${gilroyBold.variable} font-sans antialiased`}
       >
         {children}
       </body>

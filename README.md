@@ -43,6 +43,10 @@ npm run dev
 
 - The country code is set via cookie by the backend and cannot be changed by users on the frontend
 
+### Recommended Change:
+
+- Use CDN for images to leverage caching
+
 ### 4. Testing
 
 - Going to assume no testing as it wasnt instructed but im aware and able to add testing

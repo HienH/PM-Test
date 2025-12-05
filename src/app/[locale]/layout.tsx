@@ -38,7 +38,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className="fixed inset-x-0 top-0 z-50 bg-white">
+      <div className="fixed inset-x-0 top-0 z-50 bg-white ">
         <UtilityBar
           locales={routing.locales}
           currentLocale={locale}

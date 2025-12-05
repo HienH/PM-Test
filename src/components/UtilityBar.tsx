@@ -28,19 +28,18 @@ export default function UtilityBar({
   return (
     <>
       {/* Top UtilityBar */}
-      <div className="w-full px-4 py-2 border-b border-brand-grey">
-        <div className="w-full max-w-screen-2xl mx-auto px-4 flex items-center justify-between">
-          {/* LEFT - Always visible on all screens */}
+      <div className="max-w-[1440px] mx-auto md:px-16 p-2 border-b border-brand-grey">
+        <div className="w-full mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link
               href={`/${currentLocale}/personal`}
-              className={`font-semibold text-sm hover:underline relative pb-2 ${isPersonal ? "text-brand-red" : ""}`}
+              className={`font-semibold text-sm hover:underline relative  ${isPersonal ? "text-brand-red" : ""}`}
             >
               {t("personal")}
               {isPersonal && (
                 <span
                   className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-red"
-                  style={{ bottom: "-8px" }}
+                  style={{ bottom: "-12px" }}
                 />
               )}
             </Link>
@@ -49,7 +48,7 @@ export default function UtilityBar({
 
             <Link
               href={`/${currentLocale}/institutional`}
-              className={`font-semibold text-sm hover:underline relative pb-2 ${isInstitutional ? "text-brand-red" : ""}`}
+              className={`font-semibold text-sm hover:underline relative  ${isInstitutional ? "text-brand-red" : ""}`}
             >
               {t("institutional")}
               {isInstitutional && (
