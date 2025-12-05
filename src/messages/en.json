@@ -1,7 +1,22 @@
 {
-  "personal": "Personal",
-  "institutional": "Institutional",
-  "webtrader": "WebTrader",
-  "support": "Support",
-  "openDemo": "Open Demo"
+  "utility": {
+    "personal": "Personal",
+    "institutional": "Institutional",
+    "webtrader": "WebTrader",
+    "support": "Support",
+    "openDemo": "Open Demo"
+  },
+  "navbar": {
+    "trading": "Trading",
+    "discover": "Discover",
+    "promotions": "Promotions",
+    "company": "Company",
+    "forex": "Testing 1",
+    "education": "Testing 1",
+    "bonuses": "Testing 1",
+    "about": "Testing 1",
+    "partnerWithUs": "Partner with us",
+    "register": "Register",
+    "account": "Account"
+  }
 }

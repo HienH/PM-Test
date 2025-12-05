@@ -41,7 +41,7 @@ export default function LanguageSwitcher({ locales, currentLocale }: Props) {
   }, [open]);
 
   return (
-    <div className="relative text-xs" ref={dropdownRef}>
+    <div className="relative text-sm font-semibold" ref={dropdownRef}>
       <button
         onClick={() => setOpen((prev) => !prev)}
         className="px-2 py-1 hover:text-slate-600 transition-colors flex items-center gap-1"

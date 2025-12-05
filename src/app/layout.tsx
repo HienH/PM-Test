@@ -4,8 +4,7 @@ import "./globals.css";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
-  weight: ["600"],
-
+  weight: ["400", "600", "700"],
   display: "swap",
   variable: "--font-urbanist",
 });

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -20,76 +19,42 @@ export default function UtilityBar({
   currentLocale,
   countryMeta,
 }: Props) {
-  const t = useTranslations();
+  const t = useTranslations("utility");
   const pathname = usePathname();
-  const [open, setOpen] = useState<boolean>(false);
 
   const isPersonal = pathname.includes("/personal");
   const isInstitutional = pathname.includes("/institutional");
 
-  useEffect(() => {
-    if (open) {
-      setOpen(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [open]);
-
-  const handleToggle = (): void => {
-    setOpen((prev) => !prev);
-  };
-
-  const handleClose = (): void => {
-    setOpen(false);
-  };
-
   return (
     <>
-      <div
-        className="w-full px-4 py-2 flex items-center justify-between relative"
-        style={{ borderBottom: "1px solid #C9C9C9" }}
-      >
+      {/* Top UtilityBar */}
+      <div className="w-full px-4 py-2 border-b border-brand-grey">
         <div className="w-full max-w-screen-2xl mx-auto px-4 flex items-center justify-between">
-          {/* LEFT - Always visible */}
+          {/* LEFT - Always visible on all screens */}
           <div className="flex items-center gap-2">
             <Link
               href={`/${currentLocale}/personal`}
-              className={`font-semibold text-sm leading-5 tracking-tight hover:underline relative pb-2 ${
-                isPersonal ? "brand-red" : ""
-              }`}
+              className={`font-semibold text-sm hover:underline relative pb-2 ${isPersonal ? "text-brand-red" : ""}`}
             >
               {t("personal")}
               {isPersonal && (
                 <span
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-600"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-red"
                   style={{ bottom: "-8px" }}
                 />
               )}
             </Link>
 
-            <span className="brand-grey0 font-semibold text-sm">|</span>
+            <span className="font-semibold text-sm text-brand-grey">|</span>
 
             <Link
               href={`/${currentLocale}/institutional`}
-              className={`font-semibold text-sm leading-5 tracking-tight hover:underline relative pb-2 ${
-                isInstitutional ? "brand-red" : ""
-              }`}
+              className={`font-semibold text-sm hover:underline relative pb-2 ${isInstitutional ? "text-brand-red" : ""}`}
             >
               {t("institutional")}
               {isInstitutional && (
                 <span
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-600"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-red"
                   style={{ bottom: "-8px" }}
                 />
               )}
@@ -100,120 +65,84 @@ export default function UtilityBar({
           <div className="hidden md:flex items-center gap-4">
             <Link
               href={`/${currentLocale}/webtrader`}
-              className="font-semibold text-sm leading-5 tracking-tight hover:underline"
+              className="font-semibold text-sm hover:underline"
             >
               {t("webtrader")}
             </Link>
 
-            <span className="brand-grey0 font-semibold text-sm">|</span>
+            <span className="font-semibold text-sm text-brand-grey">|</span>
 
             <Link
               href={`/${currentLocale}/support`}
-              className="font-semibold text-sm leading-5 tracking-tight hover:underline"
+              className="font-semibold text-sm hover:underline"
             >
               {t("support")}
             </Link>
 
-            <span className="brand-grey0 font-semibold text-sm">|</span>
+            <span className="font-semibold text-sm text-brand-grey">|</span>
 
             <Link
               href={`/${currentLocale}/demo`}
-              className="font-semibold text-sm leading-5 tracking-tight hover:underline"
+              className="font-semibold text-sm hover:underline"
             >
               {t("openDemo")}
             </Link>
 
-            <span className="brand-grey0 font-semibold text-sm">|</span>
+            <span className="font-semibold text-sm text-brand-grey">|</span>
 
+            <div className="flex items-center">
+              <CountryFlag
+                flagUrl={countryMeta.flagUrl}
+                label={countryMeta.label}
+              />
+              <LanguageSwitcher
+                locales={locales}
+                currentLocale={currentLocale}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Sticky Bottom Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-3 z-50 md:hidden shadow-lg">
+        <div className="flex items-center justify-center gap-2 text-sm">
+          <Link
+            href={`/${currentLocale}/webtrader`}
+            className="font-semibold hover:text-slate-600"
+          >
+            {t("webtrader")}
+          </Link>
+
+          <span className="font-semibold text-brand-grey">|</span>
+
+          <Link
+            href={`/${currentLocale}/support`}
+            className="font-semibold hover:text-slate-600"
+          >
+            {t("support")}
+          </Link>
+
+          <span className="font-semibold text-brand-grey">|</span>
+
+          <Link
+            href={`/${currentLocale}/demo`}
+            className="font-semibold hover:text-slate-600"
+          >
+            {t("openDemo")}
+          </Link>
+
+          <span className="font-semibold text-brand-grey">|</span>
+
+          <div className="flex items-center">
             <CountryFlag
               flagUrl={countryMeta.flagUrl}
               label={countryMeta.label}
             />
-
             <LanguageSwitcher locales={locales} currentLocale={currentLocale} />
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 md:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            onClick={handleToggle}
-          >
-            <span className="sr-only">Open menu</span>
-            <div className="flex h-4 w-4 flex-col justify-between">
-              <span
-                className={`h-[2px] w-full bg-current transition-transform ${
-                  open ? "translate-y-[7px] rotate-45" : ""
-                }`}
-              />
-              <span
-                className={`h-[2px] w-full bg-current transition-opacity ${
-                  open ? "opacity-0" : "opacity-100"
-                }`}
-              />
-              <span
-                className={`h-[2px] w-full bg-current transition-transform ${
-                  open ? "-translate-y-[7px] -rotate-45" : ""
-                }`}
-              />
-            </div>
-          </button>
         </div>
       </div>
-
-      {/* Mobile menu panel */}
-      {open && (
-        <>
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 bg-black/20 z-40 md:hidden"
-            onClick={handleClose}
-            aria-hidden="true"
-          />
-
-          {/* Menu */}
-          <div className="fixed top-[48px] right-0 w-64 bg-white shadow-lg z-50 md:hidden border-l border-slate-200">
-            <div className="flex flex-col p-4 gap-4">
-              <Link
-                href={`/${currentLocale}/webtrader`}
-                className="font-semibold text-sm py-2 hover:text-slate-600"
-                onClick={handleClose}
-              >
-                {t("webtrader")}
-              </Link>
-
-              <Link
-                href={`/${currentLocale}/support`}
-                className="font-semibold text-sm py-2 hover:text-slate-600"
-                onClick={handleClose}
-              >
-                {t("support")}
-              </Link>
-
-              <Link
-                href={`/${currentLocale}/demo`}
-                className="font-semibold text-sm py-2 hover:text-slate-600"
-                onClick={handleClose}
-              >
-                {t("openDemo")}
-              </Link>
-
-              <div className="border-t border-slate-200 pt-4 flex items-center gap-3">
-                <CountryFlag
-                  flagUrl={countryMeta.flagUrl}
-                  label={countryMeta.label}
-                />
-                <LanguageSwitcher
-                  locales={locales}
-                  currentLocale={currentLocale}
-                />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
     </>
   );
 }

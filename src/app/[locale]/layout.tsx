@@ -11,6 +11,7 @@ import {
   getCountryMeta,
   getCountryOrDefault,
 } from "@/lib/countries/countries";
+import Navbar from "@/components/Navbar";
 
 type Props = {
   children: React.ReactNode;
@@ -37,12 +38,16 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <UtilityBar
-        locales={routing.locales}
-        currentLocale={locale}
-        countryMeta={countryMeta}
-      />
-      {children}
+      <div className="fixed inset-x-0 top-0 z-50 bg-white">
+        <UtilityBar
+          locales={routing.locales}
+          currentLocale={locale}
+          countryMeta={countryMeta}
+        />
+        <Navbar />
+      </div>
+
+      <div className="pt-24">{children}</div>
     </NextIntlClientProvider>
   );
 }

@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-red: #ed1d25;
+  --color-brand-grey: #c9c9c9;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans:
-    var(--font-urbanist), ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-urbanist: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
   --font-inter: var(--font-inter), sans-serif;
   --font-gilroy: "Gilroy-Bold", sans-serif;
 }
@@ -26,7 +29,6 @@
 
 body {
   background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-urbanist);
 }
 

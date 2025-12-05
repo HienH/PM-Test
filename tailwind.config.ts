@@ -6,14 +6,6 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/config/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        "brand-red": "#ED1D25",
-        "brand-grey": "#6B7280",
-      },
-    },
-  },
   plugins: [],
 };
 
