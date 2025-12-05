@@ -47,9 +47,17 @@ npm run dev
 
 - Use CDN for images to leverage caching
 
-### 4. Testing
+## What I would improve with more time
 
-- Going to assume no testing as it wasnt instructed but im aware and able to add testing
+- Implement proper testing to ensure reliability and maintain code quality.
+
+- Add accessibility tags to improve usability for all users.
+
+- Enhance SEO for better discoverability and ranking.
+
+- Further optimize performance wherever possible.
+
+- Add localization to css styling for consistency
 
 ```
 
